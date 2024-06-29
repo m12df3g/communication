@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通聯系統</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .title {
+            color: green;
+            font-size: 2em;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input {
+            background-color: black;
+            color: green;
+            border: 1px solid green;
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+        button {
+            background-color: black;
+            color: green;
+            border: 1px solid green;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: green;
+            color: black;
+        }
+
+        #message {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">TTIT</h1>
+        <form id="loginForm">
+            <label for="username">帳號：</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">密碼：</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">登入</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('message');
+
+            // 假設帳號是 "TTIT"，密碼是 "1010"
+            if (username === 'TTIT' && password === '1010') {
+                messageDiv.textContent = '登入成功！';
+                window.location.href = 'messageboard.html';
+            } else {
+                messageDiv.textContent = '帳號或密碼錯誤，請重試。';
+            }
+        });
+    </script>
+</body>
+</html>
